@@ -1,0 +1,8 @@
+:root {
+    --p-b-clr: rgb(5, 32, 55);
+    --p-t-cls: rgb(214, 206, 206);
+}
+
+body {
+    background-color: var(--p-b-clr);
+}
