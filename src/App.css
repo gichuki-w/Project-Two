@@ -1,8 +1,54 @@
 :root {
-    --p-b-clr: rgb(5, 32, 55);
+    --p-b-clr: rgb(77, 36, 126);
     --p-t-cls: rgb(214, 206, 206);
+    --b-b-clr: rgb(44, 38, 74);
+    --hover-clr: rgb(23, 8, 49);
+    --r-zero: rgb(8, 0, 239);
+    --r-hundred: #10ef08;
+    --r-fifty: rgba(255, 20, 134, 0.845);
 }
 
 body {
     background-color: var(--p-b-clr);
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.btn {
+    width: 7rem;
+    height: 7rem;
+    color: var(--p-t-cls);
+    background-color: var(--b-b-clr);
+    border: 1px solid var(--b-b-clr);
+    border-radius: 50%;
+    position: relative;
+}
+
+.btn:hover {
+    background-color: var(--hover-clr);
+    outline: 0;
+    border-color: transparent;
+    animation: rotatebtn 2000ms infinite linear;
+}
+
+.btn:focus {
+    outline: 0;
+    border: 0;
+}
+
+@keyframes rotatebtn {
+    0% {
+        border-color: var(--r-zero);
+    }
+    50% {
+        border-color: var(--r-fifty);
+    }
+    100% {
+        border-color: var(--r-hundred);
+    }
 }
