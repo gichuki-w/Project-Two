@@ -52,3 +52,9 @@ body {
         border-color: var(--r-hundred);
     }
 }
+
+.modal {
+    min-width: 500px;
+    min-height: 500px;
+    background-color: #10ef08;
+}
