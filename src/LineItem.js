@@ -3,7 +3,7 @@ import { FaTrash } from "react-icons/fa";
 
 const LineItem = ({ item, handleCheck, handleDelete }) => {
     return (
-            <li className='item' key={item.id}>
+            <li className='item'>
                 <input
                     type="checkbox"
                     checked={item.checked}
@@ -16,8 +16,8 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
             <FaTrash
                     role="button"
                     onClick={() => handleDelete(item.id)}
-                tabIndex="0"
-                aria-label="Delete ${item.item}"
+                    tabIndex="0"
+                    aria-label="Delete ${item.item}"
                 />
             </li>
     )

@@ -3,6 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Content from './Content'
 import { useState } from 'react'
+import AddItem from './AddItem'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
     return (
       <div className="App">
         <Header title="Repositories" />
+        <AddItem/>
         <Content
           items={items}
           // setItems={setItems}
