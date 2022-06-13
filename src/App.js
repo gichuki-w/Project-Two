@@ -4,40 +4,41 @@ import Header from './Header'
 import Footer from './Footer'
 import Content from './Content'
 import AddItem from './AddItem'
+import Search from './Search'
 
 
 function App() {
 
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('Project List')))
-  const [newItems, setNewItems] = useState("")
+  const [newItems, setNewItems] = useState("");
+  const [search, setSearch] = useState("");
 
   const setAndSetNew = (newItems) => {
-    setItems(newItems)
-    localStorage.setItem('Project List', JSON.stringify(newItems))
-}
+    setItems(newItems);
+    localStorage.setItem('Project List', JSON.stringify(newItems));
+  }
 
   const addInputItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
-    const myNewItem = { id, checked: false, repo: item}
-    const listItems = [...items, myNewItem]
-    setAndSetNew(listItems)
+    const myNewItem = { id, checked: false, repo: item };
+    const listItems = [...items, myNewItem];
+    setAndSetNew(listItems);
 
   }
   const handleCheck = (id) => {
     const listItems = items.map((item => item.id === id ? { ...item, checked: !item.checked } : item))
-    setAndSetNew(listItems)
+    setAndSetNew(listItems);
 
   }
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id)
-    setAndSetNew(listItems)
+    setAndSetNew(listItems);
 
   }
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!newItems) return;
-    addInputItem(newItems)
-    // console.log(newItems)
+    addInputItem(newItems);
     setNewItems('')
 
   }
@@ -49,8 +50,13 @@ function App() {
         setNewItems={setNewItems}
         handleSubmit={handleSubmit}
       />
+      <Search
+        search={search}
+        setSearch={setSearch}
+
+      />
       <Content
-        items={items}
+        items={items.filter(item => ((item.repo).toLowerCase()).includes(search.toLowerCase()))}
         // setItems={setItems}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
