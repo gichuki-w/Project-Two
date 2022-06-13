@@ -1,61 +1,64 @@
 import './App.css';
+import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Content from './Content'
-import { useState } from 'react'
 import AddItem from './AddItem'
 
 
 function App() {
 
-    const [items, setItems] = useState([
-      {
-          id: 1,
-          checked: true,
-          repo: "Project One"
-      },
-      {
-          id: 2,
-          checked: false,
-          repo: "Project Two"
-      },
-      {
-          id: 3,
-          checked: false,
-          repo: "Project Three"
-      },
-      {
-          id: 4,
-          checked: false,
-          repo: "Project Four"
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Project List')))
+  const [newItems, setNewItems] = useState("")
+
+  const setAndSetNew = (newItems) => {
+    setItems(newItems)
+    localStorage.setItem('Project List', JSON.stringify(newItems))
+}
+
+  const addInputItem = (item) => {
+    const id = items.length ? items[items.length - 1].id + 1 : 1;
+    const myNewItem = { id, checked: false, repo: item}
+    const listItems = [...items, myNewItem]
+    setAndSetNew(listItems)
+
   }
-    ])
-    const handleCheck = (id) => {
-      const listItems = items.map((item => item.id === id ? {...item, checked: !item.checked} : item))
-      setItems(listItems)
-      localStorage.setItem('Project List', JSON.stringify(listItems))
+  const handleCheck = (id) => {
+    const listItems = items.map((item => item.id === id ? { ...item, checked: !item.checked } : item))
+    setAndSetNew(listItems)
+
   }
   const handleDelete = (id) => {
-      const listItems = items.filter((item) => item.id !== id)
-      setItems(listItems)
-      localStorage.setItem('Project List', JSON.stringify(listItems))
-      // console.log(id)
-  }
-    return (
-      <div className="App">
-        <Header title="Repositories" />
-        <AddItem/>
-        <Content
-          items={items}
-          // setItems={setItems}
-          handleCheck={handleCheck}
-          handleDelete={handleDelete}
-        />
-        <Footer
-          length={items.length}
-        />
-      </div>
-    );
-  }
+    const listItems = items.filter((item) => item.id !== id)
+    setAndSetNew(listItems)
 
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!newItems) return;
+    addInputItem(newItems)
+    // console.log(newItems)
+    setNewItems('')
+
+  }
+  return (
+    <div className="App">
+      <Header title="Repositories" />
+      <AddItem
+        newItems={newItems}
+        setNewItems={setNewItems}
+        handleSubmit={handleSubmit}
+      />
+      <Content
+        items={items}
+        // setItems={setItems}
+        handleCheck={handleCheck}
+        handleDelete={handleDelete}
+      />
+      <Footer
+        length={items.length}
+      />
+    </div>
+  );
+  }
 export default App;

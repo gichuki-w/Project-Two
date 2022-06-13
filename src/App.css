@@ -3,7 +3,11 @@ body {
 }
 
 .App {
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
     min-height: 100vh;
     min-width: 100vw;
     overflow-x: hidden;
@@ -39,6 +43,10 @@ body {
     border-top: 0;
     border-bottom: rgba(19, 30, 30, 0.336);
     box-shadow: -5px 0 3px -2px rgba(19, 30, 30, 0.736) inset;
+}
+
+.content>p {
+    user-select: none;
 }
 
 .footer {
@@ -91,6 +99,50 @@ ul li::before {
     color: rgba(36, 23, 178, 0.736);
     outline: none;
     cursor: pointer;
+}
+
+.addForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.addForm label {
+    position: absolute;
+    left: -9999999px;
+}
+
+#addItem {
+    outline: 0;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    margin: 0.3rem;
+    font-size: 1em;
+    border: 1px rgb(7, 7, 11) solid;
+    padding: 0.3rem;
+    flex-grow: 1;
+}
+
+.addForm>button {
+    padding: 0.3rem;
+    color: wheat;
+    background-color: black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.addForm>button:focus,
+.addForm>button:hover {
+    color: black;
+    background-color: #eee;
+    outline: 0;
 }
 
 @media (min-width: 600px) {
