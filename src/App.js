@@ -40,8 +40,7 @@ function App() {
     if (!newItems) return;
     addInputItem(newItems);
     setNewItems('')
-
-  }
+  }  
   return (
     <div className="App">
       <Header title="Repositories" />
@@ -56,7 +55,7 @@ function App() {
 
       />
       <Content
-        items={items.filter(item => ((item.repo).toLowerCase()).includes(search.toLowerCase()))}
+        items={items.filter(item => ((item.repo).toLowerCase()).includes(search.toLowerCase()))} // matching the item.repo with the search state
         // setItems={setItems}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
