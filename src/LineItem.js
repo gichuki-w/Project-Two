@@ -14,6 +14,7 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
                     onDoubleClick={() => handleCheck(item.id)}
                 >{item.repo}</label>
             <FaTrash
+                    className="faTrash"
                     role="button"
                     onClick={() => handleDelete(item.id)}
                     tabIndex="0"

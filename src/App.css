@@ -1,175 +1,200 @@
-body {
-    background-color: var(--p-b-clr);
+:root {
+    --p-bg-clr: #1d1421;
+    --p-br-clr: rgb(221, 228, 222);
+    --shad-clr: #7FFFD3;
+    --p-text-clr: white;
 }
-
-.App {
+body {
+    background-color: var(--p-bg-clr);
+}
+.app {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     justify-content: flex-start;
-    /* align-items: flex-start; */
+    flex-direction: column;
     min-height: 100vh;
     min-width: 100vw;
     overflow-x: hidden;
-    background-color: white;
-}
-
-.header {
-    padding: 0.3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(9, 9, 9);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    box-shadow: 0 5px 3px rgba(19, 30, 30, 0.736);
-}
-
-.Content {
-    border: 1px solid rgba(19, 30, 30, 0.736);
-    display: flex;
-    /* align-items: center; */
-    justify-content: flex-start;
-    justify-content: center;
-    border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
-    padding: 1rem;
-    min-height: 17rem;
-    margin: 2px;
-    border-top: 0;
-    border-bottom: rgba(19, 30, 30, 0.336);
-    box-shadow: -5px 0 3px -2px rgba(19, 30, 30, 0.736) inset;
-}
-
-.content>p {
-    user-select: none;
-}
-
-.footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8em;
-    border-bottom: 1px solid rgba(19, 30, 30, 0.736);
-}
-
-ul {
-    width: 150px;
-    list-style: none;
-    padding: 0 0.25rem 0.25rem;
-    font-size: 0.9em;
-}
-
-ul li::before {
-    content: "\200B";
-}
-
-.item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0.5rem 0 0.5rem 0.5rem;
-    margin: 0.25rem 0;
-    background-color: #eee;
-}
-
-.item:first-child {
+    background-color: var(--p-bg-clr);
+    padding: 0;
     margin: 0;
 }
-
-.item input[type="checkbox"]:focus+label {
-    text-decoration: underline;
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin: 0 0 0 0;
+    color: var(--p-text-clr);
+    background-color: var(--p-bg-clr);
 }
-
-.item>label {
-    width: 90px;
-    min-width: 90px;
-    height: 23px;
-    cursor: pointer;
-    color: rgba(19, 30, 30, 0.736);
-    user-select: none;
+.header > p {
+    font-size: 2em;
+    padding: 0%;
+    margin: 0;
 }
-
-.item svg:focus,
-.item svg:hover {
-    color: rgba(36, 23, 178, 0.736);
-    outline: none;
-    cursor: pointer;
-}
-
 .addForm {
+    margin: 0 0 0 0;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+.addForm label {
+    position: absolute;
+    left: -99999999999px;
+}
+.input{
+    padding: 0.3rem;
+    font-size: 1.2em;
+    letter-spacing: 1.5px;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+    border: solid 0.1px var(--p-br-clr);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    border-top: none;
+    border-right: none;
+}
+.input:focus {
+    outline: 0;
+}
+.addForm button {
+    border: 0;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    margin: 0 0 0 1rem;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+    color: var(--p-bg-clr);
+    border: 1px solid var(--p-bg-clr);
+}
+.addForm button:focus {
+    outline: 0;
+}
+.addForm button:hover {
+    color: var(--p-text-clr);
+    background-color: var(--p-bg-clr);
+    border: 1px solid var(--p-br-clr);
+}
+.searchForm {
+    margin: 0 0 0 0;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: center;   
+}
+.searchForm:focus {
+    outline: 0;
+}
+.searchForm label {
+    position: absolute;
+    left: -99999999999px;
+}
+.searchForm input {
+    padding: 0.3rem;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+    border: solid 0.1px var(--p-br-clr);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    border-top: none;
+    border-bottom: none;
+    min-width: 80%;
+}
+.content {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+}
+ul {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
+    font-size: 1em;
+
+}
+.item {
+    padding: 0.7rem 0 0.5rem 0;
+    width: 100%;
+    border-bottom:  0.1px solid rgba(108, 103, 103, 0.445);
+}
+.item input {
+    padding-left: 1rem;
+    margin: 0 1rem 0 1rem;
+} 
+.item label {
+    padding-right: 1rem;
+} 
+.item label:hover {
+    color: #6d61dd;
+}
+.faTrash {
+    padding: 0;
+    margin: 0 1rem 0 0.3rem;
+    
+}
+.faTrash:hover,
+.faTrash:focus {
+    color: red;
+    outline: 0;
+}
+.footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    background-color: var(--p-bg-clr);
+    color: var(--p-text-clr);
 }
 
-.addForm label {
-    position: absolute;
-    left: -9999999px;
+@media (min-width: 500px) {
+.app {
+    max-width: 1000px;
 }
-
-#addItem {
-    outline: 0;
-    border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
-    margin: 0.3rem;
-    font-size: 1em;
-    border: 1px rgb(7, 7, 11) solid;
-    padding: 0.3rem;
-    flex-grow: 1;
+.header{
+    padding: 1rem;
 }
-
-.addForm>button {
-    padding: 0.3rem;
-    color: wheat;
-    background-color: black;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+.header > p {
+    font-size: 3em;
 }
-
-.addForm>button:focus,
-.addForm>button:hover {
-    color: black;
-    background-color: #eee;
-    outline: 0;
+.input{
+    padding: 0.5rem;
+    font-size: 1.5em;
+    min-width: 80%;
 }
-
-@media (min-width: 600px) {
-    .header {
-        padding: 1rem;
-        height: 5rem;
-        border-bottom-left-radius: 3rem;
-        border-bottom-right-radius: 3rem;
-        font-size: 2em;
-    }
-    .Content {
-        border-radius: 1rem;
-        -webkit-border-radius: 1rem;
-        -moz-border-radius: 1rem;
-        -ms-border-radius: 1rem;
-        -o-border-radius: 1rem;
-        padding: 2rem;
-        min-height: 20rem;
-        border-top: 0;
-    }
-    ul {
-        width: 200px;
-        font-size: 1em;
-    }
-    .item>label {
-        width: 110px;
-        min-width: 110px;
-        height: 25px;
-    }
+.addForm button {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin: 0 0 0 2rem;
+}
+.searchForm {
+    padding: 1rem 0 1rem 0;
+}
+.searchForm input {
+    padding: 0.6rem;
+}
+.item {
+    min-width: 90%;
+}
+.item label {
+    min-width: 50%;
+}
 }

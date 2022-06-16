@@ -8,7 +8,7 @@ import Search from './Search'
 
 
 function App() {
-
+  // localStorage.setItem('Project List', JSON.stringify([]))
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('Project List')))
   const [newItems, setNewItems] = useState("");
   const [search, setSearch] = useState("");
@@ -43,7 +43,7 @@ function App() {
   }  
   return (
     <div className="App">
-      <Header title="Repositories" />
+      <Header title="Repository List" />
       <AddItem
         newItems={newItems}
         setNewItems={setNewItems}
